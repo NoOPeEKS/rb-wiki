@@ -29,16 +29,16 @@
   <aside class="w-64 bg-gray-100 min-h-screen">
     <div class="p-4">
       <ul>
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path, class: "block py-2 hover:text-purple-600" %></li>
+        <% end %>
         <li><a href="/getting-started" class="block py-2 hover:text-purple-600">Getting started</a></li>
         <li><a href="/configure" class="block py-2 hover:text-purple-600">Configure</a></li>
-        <li><a href="/admin" class="block py-2 hover:text-purple-600">Admin</a></li>
-        <!-- Add more sidebar items as needed -->
       </ul>
     </div>
   </aside>
   
   <main class="flex-grow p-8">
-    <!-- Your main content will go here -->
     <h1 class="text-2xl font-bold mb-4">Welcome to RBWiki</h1>
     <p>This is an explanation of how the wiki works</p>
     <%= yield %>
