@@ -32,8 +32,11 @@
         <% if current_user %>
           <li><%= link_to "Profile", user_path, class: "block py-2 hover:text-purple-600" %></li>
         <% end %>
-        <li><a href="/getting-started" class="block py-2 hover:text-purple-600">Getting started</a></li>
-        <li><a href="/configure" class="block py-2 hover:text-purple-600">Configure</a></li>
+        <div class="flex flex-col gap-4">
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, articles_path(category: category.id) %>
+          <% end %>
+        </div>
       </ul>
     </div>
   </aside>
