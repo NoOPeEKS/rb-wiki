@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :show]
 
+  resources :categories, only: [:new, :index, :create]
+
   
   root "home#index"
 end
