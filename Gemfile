@@ -70,3 +70,5 @@ end
 gem "tailwindcss-rails", "~> 2.6"
 
 gem "devise", "~> 4.9"
+
+gem "redcarpet", "~> 3.6"
