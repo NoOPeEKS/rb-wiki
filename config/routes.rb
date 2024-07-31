@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :articles, except: [:index, :show]
   end
 
+  get "search", to: "articles#search", as: :search_articles
+
   resources :articles, only: [:index, :show]
 
   resources :categories, only: [:new, :index, :create]

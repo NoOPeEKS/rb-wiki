@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  def search
+    @query = params[:query]
+    @articles = Article.where("title LIKE ? OR body LIKE ?", "%#{@query}%", "%#{@query}%")
+    render :search_results
+  end
 
   # GET /articles or /articles.json
   def index

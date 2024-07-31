@@ -9,9 +9,9 @@
         </a>
       </div>
       <div class="flex items-center">
-        <form class="mr-4">
-          <input type="text" placeholder="Search the docs" class="px-2 py-1 rounded text-black">
-        </form>
+        <%= form_with url: search_articles_path, method: :get, class: "mr-4" do |f| %>
+          <%= f.text_field :query, placeholder: "Search the docs", class: "px-2 py-1 rounded text-black" %>
+        <% end %>
         <a href="/" class="hover:underline">Home</a>
         <% if current_user %>
           <%= link_to "Sign out",  destroy_user_session_path, class: "text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900",
