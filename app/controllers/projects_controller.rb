@@ -1,5 +1,12 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_project, only: %i[ show edit update destroy ]
+
+  def search
+    @query = params[:query]
+    @projects = Project.where("title LIKE ? OR description LIKE ?", "%#{@query}", "%#{@query}")
+    render :search_results
+  end
 
   # GET /projects or /projects.json
   def index
