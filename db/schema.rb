@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "tipus"
     t.string "call"
     t.text "app_domain"
     t.date "start_date"
@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
 
   create_table "proposals", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "tipus"
     t.string "call"
     t.text "app_domain"
     t.date "deadline"
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
 
   create_table "tools", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "tipus"
     t.date "date"
     t.string "code_repo_link"
     t.string "document_link"

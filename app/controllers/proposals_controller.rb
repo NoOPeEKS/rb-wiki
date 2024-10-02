@@ -65,6 +65,6 @@ class ProposalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def proposal_params
-      params.require(:proposal).permit(:title, :type, :call, :description, :app_domain, :deadline, :duration, :status, :client, :units_involved, :people_involved, :total_budget, :eurecat_budget, :eurecat_budget_excel, :document_link, :keywords)
+      params.require(:proposal).permit(:title, :tipus, :call, :description, :app_domain, :deadline, :duration, :status, :client, :units_involved, :people_involved, :total_budget, :eurecat_budget, :eurecat_budget_excel, :document_link, :keywords)
     end
 end

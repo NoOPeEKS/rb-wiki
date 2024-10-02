@@ -2,7 +2,7 @@ class CreateTools < ActiveRecord::Migration[7.1]
   def change
     create_table :tools do |t|
       t.string :title
-      t.string :type
+      t.string :tipus
       t.date :date
       t.string :code_repo_link
       t.string :document_link

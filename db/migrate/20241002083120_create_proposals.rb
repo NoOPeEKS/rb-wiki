@@ -2,7 +2,7 @@ class CreateProposals < ActiveRecord::Migration[7.1]
   def change
     create_table :proposals do |t|
       t.string :title
-      t.string :type
+      t.string :tipus
       t.string :call
       t.text :app_domain
       t.date :deadline
