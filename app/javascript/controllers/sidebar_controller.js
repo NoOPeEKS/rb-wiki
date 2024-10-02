@@ -24,11 +24,5 @@ export default class extends Controller {
       this.closeIconTarget.classList.remove("hidden")
     }
   }
-
-  close(event) {
-    if (!this.sidebarTarget.contains(event.target) && !this.toggleButtonTarget.contains(event.target)) {
-      this.sidebarOpen = false
-      this.updateUI()
-    }
-  }
 }
+
