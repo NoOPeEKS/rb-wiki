@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tools
+  resources :proposals
   resources :projects
   resource :user, only: [:show]
   devise_for :users

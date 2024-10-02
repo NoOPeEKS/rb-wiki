@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_02_082402) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -83,6 +83,39 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_082402) do
     t.text "presentation"
     t.text "data_sources"
     t.text "keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.string "title"
+    t.string "type"
+    t.string "call"
+    t.text "app_domain"
+    t.date "deadline"
+    t.integer "duration"
+    t.string "status"
+    t.text "client"
+    t.text "units_involved"
+    t.text "people_involved"
+    t.integer "total_budget"
+    t.integer "eurecat_budget"
+    t.string "eurecat_budget_excel"
+    t.string "document_link"
+    t.text "keywords"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tools", force: :cascade do |t|
+    t.string "title"
+    t.string "type"
+    t.date "date"
+    t.string "code_repo_link"
+    t.string "document_link"
+    t.string "units"
+    t.string "keywords"
+    t.text "technology"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
