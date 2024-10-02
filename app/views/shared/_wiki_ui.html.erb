@@ -1,0 +1,53 @@
+<div data-controller="sidebar" class="flex h-screen flex-col">
+  <!-- Navbar -->
+  <header class="flex h-16 items-center justify-between bg-purple-600 px-4 text-white">
+    <div class="flex items-center space-x-4">
+      <button
+          data-action="click->sidebar#toggle"
+          data-sidebar-target="toggleButton"
+          aria-label="Toggle sidebar"
+          class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-purple-700 h-10 w-10"
+          >
+          <svg data-sidebar-target="openIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polyline points="15 18 9 12 15 6"/></svg>
+          <svg data-sidebar-target="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 hidden"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <%= link_to root_path, class: "flex items-center" do %>
+        <span class="text-2xl font-bold mr-2">Eurecat</span>
+        <span class="text-xl">RBWiki</span>
+      <% end %>
+    </div>
+    <div class="flex items-center space-x-4">
+      <%= form_with url: search_articles_path, method: :get, class: "relative" do |f| %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-2 top-2.5 h-4 w-4 text-purple-300"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <%= f.text_field :query, placeholder: 'Search the docs', class: 'flex h-10 w-full rounded-md border border-purple-400 bg-purple-500 px-3 py-2 text-sm ring-offset-purple-500 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-purple-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-8 w-[200px]' %>
+      <% end %>
+      <%= link_to "Home", root_path, class: "hover:underline" %>
+      <% if current_user %>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2" %>
+      <% end %>
+    </div>
+  </header>
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    <aside
+        data-sidebar-target="sidebar"
+        class="w-64 bg-gray-100 p-6 overflow-y-auto"
+        >
+        <nav class="flex flex-col space-y-2">
+          <h2 class="text-lg font-semibold mb-2">Categories</h2>
+          <% if current_user %>
+            <%= link_to "Profile", user_path, class: "inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-gray-200 h-10 px-4 py-2" %>
+          <% end %>
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, articles_path(category: category.id), class: "inline-flex items-center justify-start whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-gray-200 h-10 px-4 py-2" %>
+          <% end %>
+        </nav>
+    </aside>
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-6">
+      <%= yield %>
+    </main>
+  </div>
+</div>
