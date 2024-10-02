@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  call: MyString
+  app_domain: MyText
+  start_date: 2024-10-02
+  end_date: 2024-10-02
+  duration: 1
+  client: MyText
+  units_involved: MyText
+  people_involved: MyText
+  total_budget: 1
+  eurecat_budget: 1
+  eurecat_budget_excel: MyString
+  code_repos: MyText
+  deliverables: MyText
+  presentation: MyText
+  data_sources: MyText
+  keywords: MyText
+
+two:
+  title: MyString
+  type: 
+  call: MyString
+  app_domain: MyText
+  start_date: 2024-10-02
+  end_date: 2024-10-02
+  duration: 1
+  client: MyText
+  units_involved: MyText
+  people_involved: MyText
+  total_budget: 1
+  eurecat_budget: 1
+  eurecat_budget_excel: MyString
+  code_repos: MyText
+  deliverables: MyText
+  presentation: MyText
+  data_sources: MyText
+  keywords: MyText
