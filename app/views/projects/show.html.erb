@@ -11,11 +11,13 @@
           <span class="ml-2 text-gray-500"><%= @project.call %></span>
           </p>
         </div>
-        <% @project.app_domain.split(", ").each do |domain| %>
-          <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-            <%= domain %>
-          </span>
-        <% end %>
+        <div>
+          <% @project.app_domain.split(", ").each do |domain| %>
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+              <%= domain %>
+            </span>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
