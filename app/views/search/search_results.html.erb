@@ -1,0 +1,51 @@
+<h1 class="text-2xl font-bold mb-4">Search Results for "<%= @query %>"</h1>
+
+<% if @articles.any? %>
+  <ul class="space-y-4">
+    <% @articles.each do |article| %>
+      <li class="border-b pb-4">
+        <h2 class="text-xl font-semibold"><%= link_to article.title, article_path(article), class: "text-purple-600 hover:underline" %></h2>
+        <p class="text-gray-600"><%= truncate(strip_tags(article.body.to_s), length: 150) %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="text-gray-600">No articles found for "<%= @query %>"</p>
+<% end %>
+
+<% if @projects.any? %>
+  <p class="text-gray-600">Projects found:</p>
+  <ul class="space-y-4">
+    <% @projects.each do |project| %>
+      <li class="border-b pb-4">
+        <h2 class="text-xl font-semibold"><%= link_to project.title, project_path(project), class: "text-purple-600 hover:underline" %></h2>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="text-gray-600">No projects found for "<%= @query %>"</p>
+<% end %>
+
+<% if @proposals.any? %>
+  <ul class="space-y-4">
+    <% @proposals.each do |proposal| %>
+      <li class="border-b pb-4">
+        <h2 class="text-xl font-semibold"><%= link_to proposal.title, proposal_path(proposal), class: "text-purple-600 hover:underline" %></h2>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="text-gray-600">No proposals found for "<%= @query %>"</p>
+<% end %>
+
+<% if @tools.any? %>
+  <ul class="space-y-4">
+    <% @tools.each do |tool| %>
+      <li class="border-b pb-4">
+        <h2 class="text-xl font-semibold"><%= link_to tool.title, tool_path(tool), class: "text-purple-600 hover:underline" %></h2>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="text-gray-600">No tools found for "<%= @query %>"</p>
+<% end %>
