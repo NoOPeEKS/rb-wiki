@@ -10,12 +10,15 @@
     <%= link_to "New article", new_article_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="proposals" class="min-w-full">
-    <% @articles.each do |article| %>
-      <%= render article %>
-      <p>
-        <%= link_to "Show this article", article, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div id="projects" class="min-w-full mt-4">
+    <ul class="space-y-4">
+      <% @articles.each do |article| %>
+        <li class="border-b pb-4">
+          <h2 class="text-xl font-semibold"><%= link_to article.title, article_path(article), class: "text-purple-600 hover:underline" %></h2>
+          <p><%= article.category.name %></p>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
+
