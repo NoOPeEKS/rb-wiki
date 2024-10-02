@@ -10,12 +10,14 @@
     <%= link_to "New project", new_project_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="projects" class="min-w-full">
-    <% @projects.each do |project| %>
-      <%= render project %>
-      <p>
-        <%= link_to "Show this project", project, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div id="projects" class="min-w-full mt-4">
+    <ul class="space-y-4">
+      <% @projects.each do |project| %>
+        <li class="border-b pb-4">
+          <h2 class="text-xl font-semibold"><%= link_to project.title, project_path(project), class: "text-purple-600 hover:underline" %></h2>
+          <p><%= project.keywords %></p>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
