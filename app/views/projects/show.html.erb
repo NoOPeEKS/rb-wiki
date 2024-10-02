@@ -11,9 +11,11 @@
           <span class="ml-2 text-gray-500"><%= @project.call %></span>
           </p>
         </div>
-        <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-          <%= @project.app_domain %>
-        </span>
+        <% @project.app_domain.split(", ").each do |domain| %>
+          <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+            <%= domain %>
+          </span>
+        <% end %>
       </div>
     </div>
     <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
@@ -48,13 +50,17 @@
             People Involved
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <%= @project.people_involved %>
+            <% @project.people_involved.split(", ").each do |person| %>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
+                <%= person %>
+              </span>
+            <% end %>
           </dd>
         </div>
         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">Units Involved</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <% @project.units_involved do |unit| %>
+            <% @project.units_involved.split(", ").each do |unit| %>
               <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 mr-2">
                 <%= unit %>
               </span>
@@ -104,7 +110,7 @@
     <div>
       <h3 class="text-xl font-semibold mb-4">Data Sources</h3>
       <ul class="list-disc list-inside">
-        <% @project.data_sources do |source| %>
+        <% @project.data_sources.split(", ").each do |source| %>
           <li class="text-gray-700"><%= source %></li>
         <% end %>
       </ul>
@@ -112,7 +118,7 @@
     <div>
       <h3 class="text-xl font-semibold mb-4">Keywords</h3>
       <div class="flex flex-wrap gap-2">
-        <% @project.keywords do |keyword| %>
+        <% @project.keywords.split(", ").each do |keyword| %>
           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
