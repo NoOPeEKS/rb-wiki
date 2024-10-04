@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_04_115150) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -55,7 +55,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
     t.datetime "updated_at", null: false
     t.integer "category_id", null: false
     t.text "body"
+    t.integer "user_id", null: false
     t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -85,6 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
     t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -105,6 +109,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
     t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
   create_table "tools", force: :cascade do |t|
@@ -118,6 +124,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
     t.text "technology"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_tools_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -135,4 +143,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "proposals", "users"
+  add_foreign_key "tools", "users"
 end

@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   after_create :generate_markdown_file
   belongs_to :category
   has_rich_text :body
+  belongs_to :user
 
   def generate_markdown_file
     markdown_content = construct_markdown

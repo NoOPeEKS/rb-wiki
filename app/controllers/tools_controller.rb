@@ -23,6 +23,7 @@ class ToolsController < ApplicationController
   # POST /tools or /tools.json
   def create
     @tool = Tool.new(tool_params)
+    @tool.user = current_user
 
     respond_to do |format|
       if @tool.save
