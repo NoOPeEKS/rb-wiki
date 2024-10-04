@@ -72,3 +72,6 @@ gem "tailwindcss-rails", "~> 2.6"
 gem "devise", "~> 4.9"
 
 gem "redcarpet", "~> 3.6"
+
+gem "nokogiri", "~> 1.16"
+gem "reverse_markdown", "~> 2.1"
