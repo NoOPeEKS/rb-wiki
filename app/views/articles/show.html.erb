@@ -1,7 +1,19 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @article %>
-
+<article class="h-full flex flex-col">
+  <header class="bg-white shadow-md p-6">
+    <h1 class="text-3xl font-bold mb-4"><%= @article.title %></h1>
+    <div class="flex items-center">
+      <span class="h-10 w-10 mr-4 rounded-full">JD</span>
+      <span class="text-sm text-gray-600">By John Doe</span>
+    </div>
+  </header>
+  
+  <div class="flex-1 overflow-auto p-6">
+    <div class="prose dark:prose-invert max-w-none">
+      <%= sanitize @article.body.to_s %>
+    </div>
+  </div>
+</article>
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Back to articles", articles_path %>

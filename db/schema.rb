@@ -51,10 +51,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id", null: false
+    t.text "body"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
@@ -91,18 +91,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_083540) do
     t.string "title"
     t.string "tipus"
     t.string "call"
-    t.text "app_domain"
+    t.string "app_domain"
     t.date "deadline"
     t.integer "duration"
     t.string "status"
-    t.text "client"
-    t.text "units_involved"
-    t.text "people_involved"
+    t.string "client"
+    t.string "units_involved"
+    t.string "people_involved"
     t.integer "total_budget"
     t.integer "eurecat_budget"
     t.string "eurecat_budget_excel"
     t.string "document_link"
-    t.text "keywords"
+    t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
