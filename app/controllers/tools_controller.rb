@@ -18,6 +18,7 @@ class ToolsController < ApplicationController
 
   # GET /tools/1/edit
   def edit
+    authorize @tool
   end
 
   # POST /tools or /tools.json

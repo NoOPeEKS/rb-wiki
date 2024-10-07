@@ -18,6 +18,7 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/1/edit
   def edit
+    authorize @proposal
   end
 
   # POST /proposals or /proposals.json
