@@ -18,7 +18,7 @@
 
   <%= link_to "Back to articles", articles_path %>
 
-  <% if policy(@article).update? %>
+  <% if policy(@article).destroy? %>
     <%= button_to "Destroy this article", @article, method: :delete %>
   <% end %>
 </div>
