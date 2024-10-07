@@ -38,6 +38,7 @@ class ToolsController < ApplicationController
 
   # PATCH/PUT /tools/1 or /tools/1.json
   def update
+    authorize @tool
     respond_to do |format|
       if @tool.update(tool_params)
         format.html { redirect_to tool_url(@tool), notice: "Tool was successfully updated." }
@@ -51,6 +52,7 @@ class ToolsController < ApplicationController
 
   # DELETE /tools/1 or /tools/1.json
   def destroy
+    authorize @tool
     @tool.destroy!
 
     respond_to do |format|

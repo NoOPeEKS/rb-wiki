@@ -38,6 +38,7 @@ class ProposalsController < ApplicationController
 
   # PATCH/PUT /proposals/1 or /proposals/1.json
   def update
+    authorize @proposal
     respond_to do |format|
       if @proposal.update(proposal_params)
         format.html { redirect_to proposal_url(@proposal), notice: "Proposal was successfully updated." }
@@ -51,6 +52,7 @@ class ProposalsController < ApplicationController
 
   # DELETE /proposals/1 or /proposals/1.json
   def destroy
+    authorize @proposal
     @proposal.destroy!
 
     respond_to do |format|
