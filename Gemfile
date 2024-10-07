@@ -75,3 +75,5 @@ gem "redcarpet", "~> 3.6"
 
 gem "nokogiri", "~> 1.16"
 gem "reverse_markdown", "~> 2.1"
+
+gem "pundit", "~> 2.4"
