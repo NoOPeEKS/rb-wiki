@@ -16,7 +16,7 @@ class Article < ApplicationRecord
 
     <<-MARKDOWN
       # #{title}
-      **Author**: John Doe
+      **Author**: #{user.email}
 
       ## Category: #{category.name}
 
