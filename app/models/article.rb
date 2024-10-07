@@ -18,6 +18,8 @@ class Article < ApplicationRecord
       # #{title}
       **Author**: John Doe
 
+      ## Category: #{category.name}
+
       ## Body:
       #{markdown_body}
     MARKDOWN
