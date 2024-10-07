@@ -29,7 +29,7 @@ class Proposal < ApplicationRecord
     ## Budget link: #{eurecat_budget_excel}
     ## Document link: #{document_link}
     ## Keywords: #{keywords}
-    ### Description:
+    ## Description:
     #{markdown_description}
     MARKDOWN
   end
