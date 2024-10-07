@@ -6,10 +6,14 @@
 
     <%= render @tool %>
 
-    <%= link_to "Edit this tool", edit_tool_path(@tool), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% if policy(@tool).update? %>
+      <%= link_to "Edit this tool", edit_tool_path(@tool), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
     <%= link_to "Back to tools", tools_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this tool", @tool, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+    <% if policy(@tool).destroy? %>
+      <div class="inline-block ml-2">
+        <%= button_to "Destroy this tool", @tool, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+    <% end %>
   </div>
 </div>
