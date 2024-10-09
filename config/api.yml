@@ -1,0 +1,8 @@
+development:
+  api_available: false
+
+test:
+  api_available: false
+
+production:
+  api_available: true

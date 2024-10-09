@@ -3,7 +3,7 @@ require 'json'
 require 'reverse_markdown'
 
 class Article < ApplicationRecord
-  after_create :generate_markdown_file
+  after_create :generate_markdown_file, if: -> { Rails.configuration.api_config['api_available'] }
   belongs_to :category
   has_rich_text :body
   belongs_to :user

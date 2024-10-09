@@ -1,7 +1,7 @@
 require 'reverse_markdown'
 
 class Proposal < ApplicationRecord
-  after_create :generate_markdown_file
+  after_create :generate_markdown_file, if: -> { Rails.configuration.api_config['api_available'] }
   has_rich_text :description
   belongs_to :user
 
