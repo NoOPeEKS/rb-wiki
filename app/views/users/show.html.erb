@@ -1,6 +1,110 @@
-<h1>Profile</h1>
-<p>
-  <strong>Is admin: </strong><%= @user.admin? %>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="min-h-screen bg-white text-black">
+  <header class="bg-white border-b border-gray-200 py-6">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold">User Profile</h1>
+    </div>
+  </header>
+  <main class="container mx-auto px-4 py-8">
+    <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="p-6">
+        <div class="flex flex-row items-center gap-4">
+          <div class="h-20 w-20 rounded-full bg-gray-200 flex items-center justify-center text-xl font-semibold">
+            <%= @user.name.split(' ').map { |n| n[0] }.join('') %>
+          </div>
+          <div>
+            <h2 class="text-2xl font-semibold"><%= @user.name %></h2>
+            <div class="flex items-center mt-2 text-gray-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <%= @user.email %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-6 pb-6">
+        <div class="flex items-center justify-between">
+          <span class="text-gray-600">
+            <%= @user.admin? ? "Admin User" : "Regular User" %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold">Articles</h2>
+      </div>
+      <div class="px-6 pb-6">
+        <% if @user.articles.length == 0 %>
+          <p class="text-sm text-gray-600">The user hasn't yet posted any article</p>
+        <% else %>
+        <ul class="space-y-4">
+          <% @user.articles.each do |article| %>
+            <li class="border-b border-gray-100 pb-2">
+              <h3 class="font-semibold"><%= article.title %></h3>
+              <p class="text-sm text-gray-600"><%= article.created_at.to_s %></p>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="mt-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold">Projects</h2>
+      </div>
+      <div class="px-6 pb-6">
+        <% if @user.projects.length == 0 %>
+          <p class="text-sm text-gray-600">The user hasn't yet posted any project</p>
+        <% else %>
+        <ul class="space-y-4">
+          <% @user.project.each do |project| %>
+            <li class="border-b border-gray-100 pb-2">
+              <h3 class="font-semibold"><%= project.title %></h3>
+              <p class="text-sm text-gray-600"><%= project.created_at.to_s %></p>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="mt-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold">Proposals</h2>
+      </div>
+      <div class="px-6 pb-6">
+        <% if @user.proposals.length == 0 %>
+          <p class="text-sm text-gray-600">The user hasn't yet posted any proposal</p>
+        <% else %>
+        <ul class="space-y-4">
+          <% @user.proposal.each do |proposal| %>
+            <li class="border-b border-gray-100 pb-2">
+              <h3 class="font-semibold"><%= proposal.title %></h3>
+              <p class="text-sm text-gray-600"><%= proposal.created_at.to_s %></p>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="mt-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold">Tools</h2>
+      </div>
+      <div class="px-6 pb-6">
+        <% if @user.tools.length == 0 %>
+          <p class="text-sm text-gray-600">The user hasn't yet posted any tool</p>
+        <% else %>
+        <ul class="space-y-4">
+          <% @user.tools.each do |tool| %>
+            <li class="border-b border-gray-100 pb-2">
+              <h3 class="font-semibold"><%= tool.title %></h3>
+              <p class="text-sm text-gray-600"><%= tool.created_at.to_s %></p>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>
