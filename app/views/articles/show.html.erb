@@ -11,14 +11,22 @@
     </div>
   </div>
 </article>
-<div>
-  <% if policy(@article).update? %>
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <% end %>
+<% if policy(@article).update? && policy(@article).destroy? %>
+  <hr class="my-8">
 
-  <%= link_to "Back to articles", articles_path %>
+  <div class="flex justify-end gap-4 mt-4">
+    <%= link_to edit_article_path(@article), class: "inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 11l2 2m0-4l7.778-7.778a2.5 2.5 0 113.536 3.536L11 14H7v-4z" />
+      </svg>
+      Edit Article
+    <% end %>
 
-  <% if policy(@article).destroy? %>
-    <%= button_to "Destroy this article", @article, method: :delete %>
-  <% end %>
-</div>
+    <%= link_to article_path(@article), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "inline-flex items-center px-4 py-2 border border-red-300 shadow-sm text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      Delete article
+    <% end %>
+  </div>
+<% end %>
