@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+@layer components {
+  .bg-background {
+    background-color: white;
+  }
+  
+  .bg-primary {
+    background-color: hsl(222.2 47.4% 11.2%);
+  }
+  
+  .text-primary-foreground {
+    color: white;
+  }
+  
+  .bg-muted {
+    background-color: hsl(210 40% 96.1%);
+  }
+  
+  .border-input {
+    border-color: hsl(214.3 31.8% 91.4%);
+  }
+  
+  .ring-ring {
+    --ring-color: hsl(222.2 47.4% 11.2%);
+  }
+}

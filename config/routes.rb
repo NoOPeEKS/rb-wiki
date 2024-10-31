@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:new, :index, :create]
 
+  get "chat", to: "chat#index"
+  post "chat/send_message", to: "chat#send_message"
+
   
   root "home#index"
 end
