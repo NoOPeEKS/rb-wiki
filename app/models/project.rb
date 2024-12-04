@@ -42,7 +42,8 @@ class Project < ApplicationRecord
   end
 
   def send_markdown_to_api(markdown_content)
-    uri = URI('http://127.0.0.1:8080/index')
+    api_url = Rails.configuration.api_config['api_url']
+    uri = URI("#{api_url}/index")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
     request.body = { markdown: markdown_content }.to_json

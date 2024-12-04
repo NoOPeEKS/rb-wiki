@@ -1,8 +1,11 @@
 development:
+  api_url: "http://127.0.0.1:8080"
   api_available: false
 
 test:
+  api_url: "http://127.0.0.1:8080"
   api_available: false
 
 production:
+  api_url: "http://127.0.0.1:8080"
   api_available: true
