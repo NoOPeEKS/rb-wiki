@@ -44,7 +44,14 @@ export default class extends Controller {
     
     const innerDiv = document.createElement('div')
     innerDiv.className = this.getMessageStyles(sender)
-    innerDiv.textContent = message
+    
+    // Use innerText instead of textContent to preserve newlines
+    innerDiv.innerText = message
+    
+    // Determine if message is long (more than 100 characters)
+    if (message.length > 100) {
+      innerDiv.classList.add('w-full')
+    }
     
     messageDiv.appendChild(innerDiv)
     this.messagesTarget.appendChild(messageDiv)
@@ -52,7 +59,7 @@ export default class extends Controller {
   }
 
   getMessageStyles(sender) {
-    const baseStyles = 'max-w-sm p-4 rounded-lg break-words'
+    const baseStyles = 'p-4 rounded-lg break-words max-w-lg whitespace-pre-wrap'
     
     if (sender === 'user') {
       return `${baseStyles} bg-primary text-primary-foreground`
