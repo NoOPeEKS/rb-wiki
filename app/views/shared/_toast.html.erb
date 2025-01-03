@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .toast-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 50;
+    }
+    
+    .toast {
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div 
+    x-data="{ 
+      show: false, 
+      message: '', 
+      type: 'notice',
+      init() {
+        const notice = document.querySelector('.notice').textContent.trim();
+        const alert = document.querySelector('.alert').textContent.trim();
+        
+        if (notice) {
+          this.message = notice;
+          this.type = 'notice';
+          this.showToast();
+        } else if (alert) {
+          this.message = alert;
+          this.type = 'alert';
+          this.showToast();
+        }
+      },
+      showToast() {
+        if (this.message) {
+          this.show = true;
+          setTimeout(() => {
+            this.show = false;
+          }, 3000);
+        }
+      }
+    }" 
+    class="toast-container"
+  >
+    <div
+      x-show="show"
+      x-transition
+      :class="{ 
+        'toast show': true,
+        'bg-green-500': type === 'notice',
+        'bg-red-500': type === 'alert'
+      }"
+      class="rounded-lg px-4 py-3 text-white shadow-lg"
+    >
+      <div class="flex items-center">
+        <div class="ml-3">
+          <p x-text="message" class="text-sm font-medium"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
