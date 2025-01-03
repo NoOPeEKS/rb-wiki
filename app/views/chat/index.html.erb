@@ -1,11 +1,11 @@
 <div data-controller="chat">
   <!-- Main content - Scrollable, with padding bottom to account for footer -->
-  <main class="flex-1 overflow-y-auto pb-[76px]"> <!-- 76px matches footer height -->
+  <main class="flex-1 overflow-y-auto pb-[76px]">
     <div class="p-6">
       <div class="max-w-3xl mx-auto space-y-4" data-chat-target="messages">
         <!-- Initial welcome message -->
         <div class="flex justify-start">
-          <div class="max-w-sm p-4 rounded-lg bg-muted">
+          <div class="max-w-sm p-4 rounded-lg bg-blue-100 text-blue-800">
             Welcome! How can I help you today?
           </div>
         </div>
@@ -13,7 +13,6 @@
       <div data-chat-target="messagesEnd"></div>
     </div>
   </main>
-
   <!-- Footer - Fixed at bottom of viewport -->
   <footer class="fixed bottom-0 left-0 right-0 border-t p-4 bg-background">
     <form data-action="submit->chat#sendMessage" class="flex items-center space-x-2 max-w-3xl mx-auto">

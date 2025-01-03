@@ -25,7 +25,6 @@ export default class extends Controller {
         },
         body: JSON.stringify({ message })
       })
-
       const data = await response.json()
       
       if (response.ok) {
@@ -41,10 +40,25 @@ export default class extends Controller {
 
   addMessage(message, sender) {
     const messageDiv = document.createElement('div')
-    messageDiv.classList.add('message', `${sender}-message`)
-    messageDiv.textContent = message
+    messageDiv.className = 'flex ' + (sender === 'user' ? 'justify-end' : 'justify-start')
+    
+    const innerDiv = document.createElement('div')
+    innerDiv.className = this.getMessageStyles(sender)
+    innerDiv.textContent = message
+    
+    messageDiv.appendChild(innerDiv)
     this.messagesTarget.appendChild(messageDiv)
     this.scrollToBottom()
+  }
+
+  getMessageStyles(sender) {
+    const baseStyles = 'max-w-sm p-4 rounded-lg break-words'
+    
+    if (sender === 'user') {
+      return `${baseStyles} bg-primary text-primary-foreground`
+    } else {
+      return `${baseStyles} bg-blue-100 text-blue-800`
+    }
   }
 
   scrollToBottom() {
