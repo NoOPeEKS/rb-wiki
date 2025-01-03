@@ -1,2 +1,89 @@
-<h1 class="text-2xl font-bold mb-4">Welcome to RBWiki</h1>
-<p>This is an explanation of how the wiki works</p>
+<%# app/views/pages/home.html.erb %>
+
+<div class="max-w-4xl mx-auto space-y-6">
+  <%# Hero Section %>
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-bold mb-4">Welcome to RBWiki</h1>
+    <p class="text-lg text-gray-600">
+      The central knowledge hub for Big Data & Data Science Analytics at Eurecat
+    </p>
+  </div>
+
+  <%# Main Sections Grid %>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2" />
+          </svg>
+          <h2 class="text-xl font-semibold"><%= link_to "Articles", articles_path, class: "hover:text-blue-500" %></h2>
+        </div>
+        <p class="text-gray-600">
+          Explore in-depth write-ups on cutting-edge technologies, methodologies, and best practices in data science and analytics.
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          <h2 class="text-xl font-semibold"><%= link_to "Projects", projects_path, class: "hover:text-green-500" %></h2>
+        </div>
+        <p class="text-gray-600">
+          Browse our portfolio of completed projects, including methodologies, results, and key learnings from each endeavor.
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h2 class="text-xl font-semibold"><%= link_to "Proposals", proposals_path, class: "hover:text-purple-500" %></h2>
+        </div>
+        <p class="text-gray-600">
+          Access and collaborate on project proposals, featuring detailed outlines, objectives, and potential methodologies.
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div class="p-6">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <h2 class="text-xl font-semibold"><%= link_to "Tools", tools_path, class: "hover:text-orange-500" %></h2>
+        </div>
+        <p class="text-gray-600">
+          Discover custom-built tools and utilities developed by our team to streamline data science workflows.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <%# Getting Started Section %>
+  <div class="rounded-lg border bg-card text-card-foreground shadow-sm mt-8">
+    <div class="p-6">
+      <h2 class="text-xl font-semibold mb-4">Getting Started</h2>
+      <div class="space-y-4">
+        <p class="text-gray-600">
+          <span class="font-medium">🔍 Search:</span> Use the search bar in the top navigation to quickly find specific content across all sections.
+        </p>
+        <p class="text-gray-600">
+          <span class="font-medium">📚 Browse:</span> Navigate through different sections using the sidebar menu to explore our knowledge base.
+        </p>
+        <p class="text-gray-600">
+          <span class="font-medium">✏️ Contribute:</span> Share your knowledge by creating new articles, documenting projects, or proposing new ideas.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
