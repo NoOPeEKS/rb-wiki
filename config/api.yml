@@ -1,6 +1,6 @@
 development:
   api_url: "http://127.0.0.1:8080"
-  api_available: false
+  api_available: true
 
 test:
   api_url: "http://127.0.0.1:8080"

@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 
 class ChatController < ApplicationController
   def index
@@ -18,8 +19,7 @@ class ChatController < ApplicationController
 
       puts response.body
 
-
-      render json: { response: message }, status: :ok
+      render json: {response: JSON.parse(response.body)["answer"]}, status: :ok
     rescue JSON::ParserError
       render json: { error: "Invalid JSON" }, status: :unprocessable_entity
     end

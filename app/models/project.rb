@@ -2,6 +2,8 @@ require 'reverse_markdown'
 
 class Project < ApplicationRecord
   after_create :generate_markdown_file, if: -> { Rails.configuration.api_config['api_available'] }
+  after_save :generate_markdown_file, if: -> { Rails.configuration.api_config['api_available'] }
+  after_update :generate_markdown_file, if: -> { Rails.configuration.api_config['api_available'] }
   has_rich_text :description
   has_rich_text :result_summary
   belongs_to :user
